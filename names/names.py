@@ -48,15 +48,18 @@ f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure
 
-# Store the first list in a binary search tree
-names_1_tree = BSTNode(names_1[0])
-for name in names_1:
-    names_1_tree.insert(name)
-    
-# Use a contains method to compare with the second list
-for name in names_2:
-    if names_1_tree.contains(name):
-        duplicates.append(name)
+# # Store the first list in a binary search tree
+# names_1_tree = BSTNode(names_1[0])
+# for name in names_1:
+#     names_1_tree.insert(name)
+
+# # Use a contains method to compare with the second list
+# for name in names_2:
+#     if names_1_tree.contains(name):
+#         duplicates.append(name)
+
+# --- STRETCH SOLUTION ---
+duplicates = list(set(names_1).intersection(set(names_2)))
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
@@ -66,3 +69,4 @@ print (f"runtime: {end_time - start_time} seconds")
 # Python has built-in tools that allow for a very efficient approach to this problem
 # What's the best time you can accomplish?  Thare are no restrictions on techniques or data
 # structures, but you may not import any additional libraries that you did not write yourself.
+
