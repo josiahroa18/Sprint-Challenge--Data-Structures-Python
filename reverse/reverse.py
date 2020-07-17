@@ -44,12 +44,8 @@ class LinkedList:
             next = node.next_node
             # Set the node's next node to prev
             node.next_node = prev
-            # Set previous to current node
-            prev = node
-            # Set the current node to next node in LL
-            node = next
-            # Recursive - pass in the new current node and new prev node
-            self.reverse_list(node, prev)
+            # Recursive - pass in the new current node(next node) and new prev node(current node)
+            self.reverse_list(next, node)
         # If the passed in node is None, we've reached the end of the LL, set head to prev
         else:
             self.head = prev
