@@ -39,4 +39,13 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        pass
+        if node is not None:
+            # Store the next node in the LL
+            next = node.next_node
+            # Set the node's next node to prev
+            node.next_node = prev
+            # Recursive - pass in the new current node(next node) and new prev node(current node)
+            self.reverse_list(next, node)
+        # If the passed in node is None, we've reached the end of the LL, set head to prev
+        else:
+            self.head = prev
